@@ -11,4 +11,4 @@ Belajar dasar HTML
 | 4  | List                      | `04-lists.html`             | Membuat daftar dengan `<ul>`, `<ol>`, & `<li>`         |
 |    |                           |                             | `<dl>`, `<dt>`, & `<dd>`, `<select>` & `<option>`      |
 |    |                           |                             | `<select>` & `<optgroup>` , `<datalist>` & `<option>`  |
-| 5  | Link & Gambar             | `03-links-and-images.html`  | Belajar tag `<a>`, `<img>`, '<button>`                 |
+| 5  | Link & Gambar             | `05-links-and-images.html`  | Belajar tag `<a>`, `<img>`, '<button>`                 |
