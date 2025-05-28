@@ -1,4 +1,4 @@
-# 📚 Week 1 - HTML Basics
+# 📚 Week 1
 Belajar dasar HTML
 
 ## ✅ Materi & File
