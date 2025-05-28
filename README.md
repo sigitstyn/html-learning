@@ -6,10 +6,7 @@ Belajar dasar HTML
 | 1  | Struktur dasar HTML       | `01-basic-structure.html`   |
 | 2  | Heading & Text            | `02-headings-and-text.html` |
 | 3  | Format Text               | `03-format-text.html`       |
-|    |                           |                             |
 | 4  | List                      | `04-lists.html`             |
-|    |                           |                             |
-|    |                           |                             |
 | 5  | Link & Gambar             | `05-links-and-images.html`  |
 
 # 📚 Week 2 - HTML Basics

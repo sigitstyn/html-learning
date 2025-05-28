@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Advanced</title>
+</head>
+<body>
+    <h3>Halaman Registrasi</h3>
+
+    <form action="https://www.google.com">
+        <label for="name">Nama Lengkap</label>
+        <input type="text" name="name" id="name" required>
+        <br><br>
+
+        <label>Jenis Kelamin :</label>
+        <label for="gender">
+            <input type="radio" name="gender" value="Laki-laki" required>
+            Laki-laki
+        </label>
+        <label for="gender">
+            <input type="radio" name="gender" value="Perempuan" required>
+            Perempuan
+        </label>
+        <br><br>
+
+        <label for="tanggal-lahir">Tanggal Lahir</label>
+        <input type="date" name="tanggal-lahir" id="tanggal-lahir" required>
+        <br><br>
+
+        <label for="alamat">Alamat</label><br>
+        <textarea name="alamat" id="alamat" rows="4" cols="40" placeholder="Isikan alamat lengkap" required></textarea>
+        <br>
+        <label for="kota">Kota</label>
+        <select name="kota" required>
+            <optgroup label="Pilih Kota">
+                <option value="" disabled selected hidden>Pilih Kota</option>
+                <option value="Semarang">Semarang</option>
+                <option value="Surabaya">Surabaya</option>
+            </optgroup>
+        </select><br><br>
+        
+        <label for="hobi">Hobby</label ><br>
+            <label for="hobi" name="hobi" id="hobi" >
+                <input type="checkbox">
+                Fishing
+            </label>
+            <label for="hobi" name="hobi" id="hobi">
+                <input type="checkbox">
+                Hiking
+            </label>
+            <label for="hobi" name="hobi" id="hobi">
+                <input type="checkbox" >
+                Traveling
+            </label>
+        <br><br>
+        <label for="role">Pilih role</label>
+        <select name="role" id="role" required>
+            <option value="" disabled selected hidden>Role</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+        </select>
+        <br><br>
+
+        <button type="submit">Daftar</button>
+    </form>
+</body>
+</html>
