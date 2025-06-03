@@ -1,4 +1,4 @@
-# 📚 Week 1 - HTML Basics
+# 📚 Week 1
 Belajar dasar HTML
 ## ✅ Materi & File
 | No |           Topik           |              File           |
@@ -9,7 +9,7 @@ Belajar dasar HTML
 | 4  | List                      | `04-lists.html`             |
 | 5  | Link & Gambar             | `05-links-and-images.html`  |
 
-# 📚 Week 2 - HTML Basics
+# 📚 Week 2
 Belajar Form, Table, dan Multimedia
 ## ✅ Materi & File
 | No |           Topik           |              File           |
