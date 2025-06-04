@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Latihan Div, Span & Tag Semantik</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "nav nav"
+        "main aside"
+        "footer footer";
+      grid-template-columns: 3fr 1fr;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    header {
+      grid-area: header;
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+    }
+
+    nav {
+      grid-area: nav;
+      background-color: #333;
+      color: white;
+      padding: 15px;
+    }
+
+    main {
+      grid-area: main;
+      background-color: #f4f4f4;
+      padding: 15px;
+    }
+
+    article {
+      background-color: #ddd;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    figure {
+      background-color: #bbb;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    aside {
+      grid-area: aside;
+      background-color: #f9c74f;
+      padding: 15px;
+      text-align: center;
+    }
+
+    footer {
+      grid-area: footer;
+      background-color: #2a9d8f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Style untuk span */
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    /* Contoh span warna lain */
+    .red-text {
+      color: red;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Header</h1>
+    </header>
+
+    <nav c>
+      <p>Navigation</p>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            <h2>Main Content</h2>
+            <article>
+                <h3>Article 1</h3>
+                <p>
+                Lorem, ipsum dolor.
+                <span class="highlight">Lorem ipsum dolor sit amet.</span> yang disorot menggunakan span.
+                </p>
+                <p>
+                Contoh lain dengan 
+                <span class="red-text">Lorem ipsum dolor sit.</span> Lorem.
+                </p>
+                <figure>
+                <p>Gambar/figure</p>
+                </figure>
+            </article>
+            <article>
+                <h3>Article 2</h3>
+                <p>
+                Lorem ipsum dolor sit amet. <span class="highlight">Lorem.</span> Lorem, ipsum dolor..
+                </p>
+            </article>
+        </div>  
+    </main>
+
+    <aside>
+        <div class="aside-container">
+            <h3>Aside</h3>
+            <p>Lorem ipsum dolor sit.</p>
+        </div>
+    </aside>
+
+    <footer id="footer">
+        <div class="footer-container">
+            <p>Footer</p>
+        </div>
+    </footer>
+  </div>
+</body>
+</html>
