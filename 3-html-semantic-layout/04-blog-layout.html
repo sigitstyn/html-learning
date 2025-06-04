@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tag Semantik Lanjutan</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    #header {
+      background-color: #088ed6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #head h4 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #nav-list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-item a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Main Layout */
+    #main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .home-section,
+    .about-section,
+    .product-section,
+    .contact-section {
+      flex: 1 1 60%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #aside {
+      flex: 1 1 30%;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .product-item {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .product-item img {
+      border-radius: 4px;
+    }
+
+    address a {
+      color: #0077b6;
+    }
+
+    /* Footer */
+    #footer {
+      background-color: #023e8a;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    #footer-nav {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding-top: 10px;
+    }
+
+    #footer-nav a {
+      color: #90e0ef;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      #main {
+        flex-direction: column;
+      }
+
+      .home-section,
+      .about-section,
+      .product-section,
+      .contact-section,
+      #aside {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header" class="site-header">
+    <div id="head" class="header-title">
+      <h4>Planstopia</h4>
+    </div>
+    <!-- Navigation -->
+    <nav id="nav" class="main-nav">
+      <ul id="nav-list" class="nav-list">
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#">About Me</a></li>
+        <li class="nav-item"><a href="#">Product</a></li>
+        <li class="nav-item"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main-content">
+    <!-- HOME -->
+    <section id="home" class="home-section section">
+      <h3>Welcome!</h3>
+      <p>Lorem ipsum dolor sit amet. <br>Lorem ipsum dolor sit amet.</p>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="about-section section">
+      <h3>About Me</h3>
+      <p>Lorem ipsum dolor sit amet.<br>Lorem ipsum dolor sit amet.</p>
+    </section>
+
+    <!-- PRODUCT -->
+    <section id="product" class="product-section section">
+      <h3>Product</h3>
+      <p>Lorem ipsum dolor sit amet.<br>Lorem ipsum dolor sit amet.</p>
+      <article class="product-item">
+        <figure>
+          <img src="../1-basic-html/img/lynx.png" alt="gambar" width="100" />
+        </figure>
+        <dl>
+          <dt>Product Item</dt>
+          <dd>Lorem ipsum dolor sit.</dd>
+        </dl>
+      </article>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section section">
+      <h3>Contact</h3>
+      <address>
+        Whatsapp: <a href="https://wa.me/6287705902302" class="whatsapp-me">0877-0590-2302</a><br>
+        Email: <a href="mailto:sigitstyn@gmail.com" class="email-address">sigitstyn@gmail.com</a>
+      </address>
+    </section>
+
+    <!-- SIDEBAR -->
+    <aside id="aside" class="sidebar">
+      <h3>More Articles</h3>
+      <ul>
+        <li><a href="#">Lorem ipsum dolor sit amet consectetur.</a></li>
+        <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="site-footer">
+    <p>&copy; Planstopia 2025</p>
+    <nav>
+      <ul id="footer-nav" class="footer-nav">
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About Me</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>
