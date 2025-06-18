@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portofolio">
+    <meta name="keyword" content="HTML, Portofolio">
+    <meta name="author" content="Sigit Setyo N">
+    <title>Personal Portofolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+      }
+      /* Style Header */
+      #header{
+        background-image: linear-gradient(135deg, rebeccapurple 40%, lightskyblue);
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      .nav-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nav-header h2{
+        color: white;
+        padding-left: 2rem;
+      }
+      .nav-header h2:hover{
+        color: rgb(210, 171, 250);
+      }
+      .nav-list{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding-right: 4rem;
+      }
+      .nav-item a{
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: all 0.5s ease;
+        padding: 1rem;
+      }
+      .nav-item a:hover, .nav-item a.active{
+        color: rebeccapurple;
+        background: linear-gradient(135deg, rgb(250, 245, 255) 40%, rgb(189, 229, 253));
+        border-radius: 8px;
+      }
+
+      /* Style Main */
+      #main-content{
+        min-height: 100vh;
+      }
+      
+      .hero-wrapper {
+        background: linear-gradient(135deg, rgb(250, 245, 255) 40%, rgb(189, 229, 253));
+        padding-bottom: 6rem;
+      }
+      
+      .hero-section{
+        padding: 4rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        position: relative;
+        min-height: 90vh;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 2rem;
+      }
+      .hero-section .hero-text {
+        max-width: 550px;
+        z-index: 5;
+        flex-shrink: 1;
+      }
+      .hero-section .hero-text h2{
+        /* Mengurangi ukuran font agar lebih elegan */
+        font-size: 3rem; 
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.2;
+      }
+      .hero-section .hero-text p{
+        padding-top: 1.5rem;
+        max-width: 90%;
+        line-height: 1.7;
+        font-size: 1.1rem;
+      }
+
+      .hero-section .hero-text .hero-span{
+        color: rebeccapurple;
+      }
+      
+      .hero-buttons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      
+      .button {
+        position: relative;
+        width: 130px;
+        height: 45px;
+        background-color: rgb(12, 2, 22);
+        display: flex;
+        align-items: center;
+        color: white;
+        justify-content: center;
+        border: none;
+        padding: 12px;
+        gap: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .button::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        left: -4px;
+        top: -2px;
+        margin: auto;
+        width: 138px;
+        height: 50px;
+        border-radius: 10px;
+        background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+        z-index: -10;
+        pointer-events: none;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .button::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+        transform: translate3d(0, 0, 0) scale(0.95);
+        filter: blur(20px);
+      }
+
+      .button:hover::after {
+        filter: blur(30px);
+      }
+
+      .button:hover::before {
+        transform: rotate(-180deg);
+        box-shadow: 0 0 20px rgba(232, 28, 255, 0.8);
+      }
+
+      .button:active::before {
+        scale: 0.7;
+      }
+
+      .img-blob-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        margin-right: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .blob-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 140%;
+        height: 140%;
+        background: radial-gradient(circle at center, rgba(147,112,219,0.6), rgba(135,206,250,0.3));
+        border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+        z-index: 1;
+        filter: blur(25px);
+        animation: blob-animate 10s infinite alternate;
+      }
+      
+      @keyframes blob-animate {
+          0% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; transform: translate(-50%, -50%) rotate(0deg); }
+          50% { border-radius: 30% 70% 60% 40% / 70% 40% 50% 60%; transform: translate(-50%, -50%) rotate(180deg); }
+          100% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      
+      @keyframes float-animate {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .profile-img {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 600px;
+        height: 5%;
+        object-fit: cover;
+        display: block;
+        animation: float-animate 6s ease-in-out infinite;
+      }
+      
+      .content-section {
+          padding: 6rem 2rem;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+      
+      .section-title {
+          font-size: 2.5rem;
+          text-align: center;
+          margin-bottom: 4rem;
+          color: rebeccapurple;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          position: relative;
+      }
+      
+      .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 4px;
+          background-color: lightskyblue;
+          border-radius: 2px;
+      }
+
+      #about {
+          background-color: #ffffff;
+      }
+      .about-container p {
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+          line-height: 1.8;
+          font-size: 1.1rem;
+          color: #555;
+      }
+
+      #experience {
+          background-color: #f9f9f9;
+      }
+      .experience-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 2.5rem;
+      }
+      .experience-card {
+          background: white;
+          border-radius: 15px;
+          padding: 2rem;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+          border: 1px solid #eee;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .experience-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 12px 35px rgba(102, 51, 153, 0.15);
+      }
+      .experience-card h3 {
+          color: rebeccapurple;
+          margin-bottom: 0.5rem;
+          font-size: 1.4rem;
+      }
+      .experience-card h4 {
+          color: #777;
+          margin-bottom: 1rem;
+          font-weight: 500;
+          font-style: italic;
+      }
+      .experience-card p {
+          color: #555;
+          line-height: 1.6;
+      }
+
+      #skills {
+          background-color: #ffffff;
+      }
+      .skills-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+          max-width: 1100px;
+          margin: 0 auto;
+      }
+      .skill-item {
+          background-color: #ffffff;
+          padding: 0.75rem 1.5rem;
+          border-radius: 10px;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          cursor: default;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+          border: 1px solid #eee;
+      }
+      .skill-item:hover {
+          background-color: rebeccapurple;
+          color: white;
+          transform: translateY(-5px) scale(1.03);
+          box-shadow: 0 8px 20px rgba(102, 51, 153, 0.2);
+      }
+      .skill-item i {
+          font-size: 2rem;
+          color: rebeccapurple;
+      }
+      .skill-item:hover i {
+          color: white;
+      }
+      .skill-item.no-icon span {
+          margin: auto;
+      }
+
+      #contact {
+        background-color: #f9f9f9;
+        text-align: center; /* Center align the content */
+      }
+      #contact p {
+        color: #555;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .contact-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .contact-button {
+        position: relative;
+        width: 180px; /* Wider button */
+        height: 55px; /* Taller button */
+        background-color: rebeccapurple;
+        display: flex;
+        align-items: center;
+        color: white;
+        justify-content: center;
+        border: none;
+        padding: 12px;
+        gap: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      .contact-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(102, 51, 153, 0.2);
+      }
+      .contact-button svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+      }
+
+      #footer{
+        padding: 3rem 1rem;
+        background: radial-gradient(circle at center, rebeccapurple 40%, purple);
+        color: white;
+      }
+      .footer-container{
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+      }
+      .social-links a {
+        color: white;
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+      .social-links a:hover {
+        transform: scale(1.2);
+      }
+      .social-links svg {
+        width: 28px;
+        height: 28px;
+        fill: currentColor;
+      }
+      .footer-container p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+      
+      #scrollToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: rebeccapurple;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: opacity 0.4s, transform 0.4s;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      #scrollToTopBtn.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #scrollToTopBtn:hover {
+        background-color: #5a2d8d;
+      }
+
+      /* Responsive Styles */
+      @media screen and (max-width: 768px) {
+        .nav-header {
+            flex-direction: column;
+            text-align: center;
+        }
+        .nav-list{
+            justify-content: center;
+            padding: 1rem 0 0 0;
+            gap: 15px;
+        }
+        .nav-item a {
+            padding: 0.5rem;
+        }
+
+        .hero-section {
+            flex-direction: column-reverse;
+            padding: 3rem 1.5rem 0 1.5rem;
+            text-align: center;
+        }
+        .hero-section .hero-text{
+            max-width: 100%;
+            width: 100%;
+        }
+        .hero-section .hero-text h2{
+            font-size: 2.2rem;
+        }
+        .hero-section .hero-text p{
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .hero-buttons {
+          justify-content: center;
+        }
+        .img-blob-wrapper {
+             max-width: 280px;
+             margin: 0 auto;
+        }
+        .profile-img {
+            max-width: 240px;
+            height: 240px;
+        }
+        .content-section {
+            padding: 4rem 1.5rem;
+        }
+        .section-title {
+            font-size: 2rem;
+        }
+        .experience-grid {
+             grid-template-columns: 1fr;
+        }
+        #scrollToTopBtn {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+          padding: 12px;
+        }
+      }
+    </style>
+</head>
+<body>
+    <button id="scrollToTopBtn" title="Go to top">&#8679;</button>
+    <div id="container">
+        <header id="header">
+            <div class="header-container">
+                <nav class="nav-header">
+                    <a href="#hero" style="text-decoration: none;">
+                        <h2>Sigit</h2>
+                    </a>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#hero">Home</a></li>
+                        <li class="nav-item"><a href="#about">About Me</a></li>
+                        <li class="nav-item"><a href="#experience">Experience</a></li>
+                        <li class="nav-item"><a href="#skills">Skills</a></li>
+                        <li class="nav-item"><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main id="main-content">
+            <div id="hero" class="hero-wrapper">
+                <section class="hero-section">
+                    <div class="hero-text">
+                        <h2><span class="hero-span">Hello --</span>&#128640;</h2>
+                        <h2> I'm <span class="hero-span">Sigit Setyo Nugroho</span></h2>
+                        <h2>Frontend Developer</h2>
+                        <p>Saya adalah seorang pengembang frontend yang bersemangat dalam menciptakan antarmuka pengguna yang bersih, fungsional, dan menarik secara visual. Selamat datang di portofolio saya!</p>
+                        <div class="hero-buttons">
+                            <a href="CV-SIGIT-SETYO-NUGROHO.pdf" class="button" download>Resume</a>
+                            <a href="#contact" class="button">Contact Me</a>
+                        </div>
+                    </div>
+                    <div class="img-blob-wrapper">
+                        <div class="blob-bg"></div>
+                        <img class="profile-img" src="/4-html-mini-project/04-portofolio-final/img/foto.png" alt="Foto Profil Sigit Setyo Nugroho">
+                    </div>
+                </section>
+            </div>
+
+            <section id="about" class="content-section">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-container">
+                    <p>
+                        Seorang profesional yang berdedikasi dan adaptif dengan pengalaman dalam pengembangan web, khususnya di bidang frontend. Saya memiliki hasrat untuk belajar teknologi baru dan menerapkannya untuk membangun solusi digital yang efisien dan ramah pengguna. Saya senang berkolaborasi dalam tim untuk mencapai tujuan bersama dan selalu mencari tantangan baru untuk mengembangkan keterampilan saya.
+                    </p>
+                </div>
+            </section>
+
+            <section id="experience" class="content-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-grid">
+                    <article class="experience-card">
+                        <h3>Fullstack Web & Android Developer</h3>
+                        <h4>Freelance | Jan 2022 - Nov 2023</h4>
+                        <p>Mengembangkan dan memelihara antarmuka pengguna untuk aplikasi web utama perusahaan menggunakan React dan TypeScript. Bekerja sama dengan desainer UI/UX untuk menerjemahkan wireframe menjadi kode yang responsif dan berkinerja tinggi.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3>IT Support</h3>
+                        <h4>Ontide Corporation | Jan 2024 - Present</h4>
+                        <p>Membantu dalam pengembangan berbagai proyek website klien, mulai dari landing page hingga situs e-commerce sederhana menggunakan HTML, CSS, dan JavaScript. Bertanggung jawab atas slicing desain dari Figma ke HTML.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3>Frontend Developer</h3>
+                        <h4>Freelance | May 2025 - Present</h4>
+                        <p>Terlibat dalam pembaruan konten dan perbaikan bug minor pada website resmi pemerintah daerah. Mendapatkan pengalaman pertama dalam alur kerja pengembangan perangkat lunak dalam lingkungan profesional.</p>
+                    </article>
+                </div>
+            </section>
+            
+            <section id="skills" class="content-section">
+                <h2 class="section-title">Tech Stack & Skills</h2>
+                <div class="skills-container">
+                    <!-- Frontend -->
+                    <div class="skill-item"><i class="devicon-html5-plain colored"></i> <span>HTML5</span></div>
+                    <div class="skill-item"><i class="devicon-css3-plain colored"></i> <span>CSS3</span></div>
+                    <div class="skill-item"><i class="devicon-javascript-plain colored"></i> <span>JavaScript</span></div>
+                    <div class="skill-item"><i class="devicon-react-original colored"></i> <span>React</span></div>
+                    <div class="skill-item"><i class="devicon-angularjs-plain colored"></i> <span>Angular</span></div>
+                    <div class="skill-item"><i class="devicon-nextjs-original-wordmark colored"></i> <span>Next.js</span></div>
+                    <div class="skill-item"><i class="devicon-ionic-original colored"></i> <span>Ionic</span></div>
+                    <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i> <span>Tailwind CSS</span></div>
+                    <div class="skill-item"><i class="devicon-bootstrap-plain colored"></i> <span>Bootstrap</span></div>
+                    <!-- Backend & API -->
+                    <div class="skill-item"><i class="devicon-nodejs-plain colored"></i> <span>Node.js</span></div>
+                    <div class="skill-item"><i class="devicon-express-original colored"></i> <span>Express</span></div>
+                    <div class="skill-item"><i class="devicon-nestjs-plain colored"></i> <span>NestJS</span></div>
+                    <div class="skill-item"><i class="devicon-firebase-plain colored"></i> <span>Firebase</span></div>
+                    <!-- Database -->
+                    <div class="skill-item"><i class="devicon-postgresql-plain colored"></i> <span>PostgreSQL</span></div>
+                    <div class="skill-item"><i class="devicon-mysql-plain colored"></i> <span>MySQL</span></div>
+                    <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> <span>MongoDB</span></div>
+                    <!-- Tools -->
+                    <div class="skill-item"><i class="devicon-git-plain colored"></i> <span>Git & GitHub</span></div>
+                    <div class="skill-item"><i class="devicon-postman-plain colored"></i> <span>Postman</span></div>
+                    <div class="skill-item"><i class="devicon-figma-plain colored"></i> <span>Figma</span></div>
+                </div>
+            </section>
+            
+            <section id="contact" class="content-section">
+                <h2 class="section-title">Contact Me</h2>
+                <p>Silakan hubungi saya melalui salah satu platform di bawah ini.</p>
+                <div class="contact-buttons">
+                    <a href="mailto:sigitstyn@gmail.com" class="contact-button">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="contact-button" style="background-color: #25D366;">
+                        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.48 1.32 4.95L2 22l5.25-1.38c1.41.79 3.03 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.91-9.92-9.91zM17.43 15.56c-.22-.11-.76-.38-1.04-.44s-.47-.11-.67.11c-.2.22-.64.76-.79.91s-.29.17-.54.06c-.25-.11-1.04-.38-1.98-1.22s-1.48-1.85-1.66-2.17c-.17-.32-.01-.49.1-.64.1-.14.22-.38.33-.53s.17-.28.25-.47c.08-.19.04-.36-.02-.47s-.67-1.61-.92-2.2c-.25-.59-.5-.51-.69-.51h-.57c-.19 0-.5.11-.76.38s-1.04 1.01-1.04 2.47c0 1.46 1.07 2.87 1.22 3.06s2.09 3.19 5.07 4.48c.71.3 1.26.49 1.69.62.71.22 1.36.19 1.88.11.57-.08 1.77-.72 2.02-1.42s.25-1.29.17-1.42c-.08-.11-.29-.17-.51-.28z"/></svg>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer id="footer">
+            <div class="footer-container">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/sigitstyn/" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/sigitstyn" target="_blank" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/sigitstyn/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.644-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.359 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+                    </a>
+                </div>
+                <p>&copy; Sigit Setyo Nugroho : 2025</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      const heroSection = document.querySelector(".hero-wrapper");
+
+      window.onscroll = function() {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > heroSection.offsetHeight || document.documentElement.scrollTop > heroSection.offsetHeight) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      }
+
+      scrollToTopBtn.addEventListener("click", function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
+</body>
+</html>
