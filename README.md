@@ -12,5 +12,5 @@ Project & Deployment
 
 # Personal Portofolio
 My Personal Portofolio 
-Kunjungi: [sigitstyn.github.io/html-learning](https://sigitstyn.github.io/html-learning//)
+Kunjungi: [sigitstyn.netlify.app](https://sigitstyn.netlify.app/)
 
